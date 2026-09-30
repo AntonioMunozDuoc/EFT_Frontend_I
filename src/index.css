@@ -1,0 +1,215 @@
+:root {
+  --juga2-bg: #181820;
+  --juga2-surface: #232330;
+  --juga2-surface-alt: #2b2b3a;
+  --juga2-text-muted: #a8a5b8;
+  --juga2-accent: #7c5cfc;
+  --juga2-accent-dark: #6247d1;
+  --juga2-highlight: #ffb020;
+  --juga2-border: #34344a;
+
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --bs-primary: var(--juga2-accent);
+  --bs-primary-rgb: 124, 92, 252;
+  --bs-link-color: var(--juga2-accent);
+  --bs-link-hover-color: var(--juga2-highlight);
+  --bs-body-bg: var(--juga2-bg);
+  --bs-body-font-family: var(--font-body);
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, .navbar-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+  background-color: var(--juga2-surface);
+  border-bottom: 1px solid var(--juga2-border);
+}
+
+.navbar .nav-link {
+  color: var(--juga2-text-muted);
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #fff;
+}
+
+.category-link.btn-link {
+  background: none;
+  border: none;
+  text-decoration: none;
+}
+
+form[role="search"] .form-control {
+  background-color: var(--juga2-bg);
+  border-color: var(--juga2-border);
+  color: #fff;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: 4rem;
+}
+
+.hero .eyebrow {
+  color: var(--juga2-highlight);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero-description {
+  color: var(--juga2-text-muted);
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--juga2-accent);
+  --bs-btn-border-color: var(--juga2-accent);
+  --bs-btn-hover-bg: var(--juga2-accent-dark);
+  --bs-btn-hover-border-color: var(--juga2-accent-dark);
+}
+
+/* ---------- Cards de producto ---------- */
+.product-card {
+  position: relative;
+  background-color: var(--juga2-surface);
+  border: 1px solid var(--juga2-border);
+  border-radius: 0.75rem;
+  height: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.product-card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-price {
+  color: var(--juga2-highlight);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.precio-anterior {
+  text-decoration: line-through;
+  color: var(--juga2-text-muted);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.precio-oferta {
+  color: var(--juga2-highlight);
+  font-weight: 700;
+}
+
+.badge-categoria {
+  background-color: var(--juga2-surface-alt);
+  color: var(--juga2-text-muted);
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.badge-oferta {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+  background-color: var(--juga2-highlight);
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.35rem;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background-color: var(--juga2-surface);
+  border-top: 1px solid var(--juga2-border);
+}
+
+.site-footer a {
+  color: var(--juga2-text-muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--juga2-accent);
+}
+
+/* ---------- Modal del carrito ---------- */
+.cart-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  z-index: 1050;
+}
+
+.cart-modal {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--juga2-surface);
+  border: 1px solid var(--juga2-border);
+  border-radius: 0.75rem;
+  color: #fff;
+}
+
+.cart-modal-header,
+.cart-modal-footer {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.25rem;
+}
+
+.cart-modal-header {
+  justify-content: space-between;
+}
+
+.cart-modal-footer {
+  justify-content: flex-end;
+  gap: 0.5rem;
+  border-top: 1px solid var(--juga2-border);
+}
+
+.cart-modal-body {
+  padding: 0 1.25rem 1.25rem;
+}
+
+.cart-modal .list-group-item {
+  background-color: var(--juga2-surface);
+  color: #fff;
+  border-color: var(--juga2-border);
+}
+
+/* ---------- Mensajes ---------- */
+.no-results {
+  color: var(--juga2-text-muted);
+}

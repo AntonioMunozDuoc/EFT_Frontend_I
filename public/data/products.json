@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "nombre": "Elden Ring",
+    "categoria": "videojuegos",
+    "precio": 44990,
+    "precioOferta": 34990,
+    "imagen": "img/game-elden-ring.jpg",
+    "descripcion": "Acción y rol de mundo abierto."
+  },
+  {
+    "id": 2,
+    "nombre": "Dragon Ball: Sparking! Zero",
+    "categoria": "videojuegos",
+    "precio": 49990,
+    "imagen": "img/game-dragon-ball-sparking-zero.jpg",
+    "descripcion": "Lucha arcade con roster masivo de personajes."
+  },
+  {
+    "id": 3,
+    "nombre": "Sleeping Dogs",
+    "categoria": "videojuegos",
+    "precio": 19990,
+    "precioOferta": 12990,
+    "imagen": "img/game-sleeping-dogs.jpg",
+    "descripcion": "Acción de mundo abierto en Hong Kong."
+  },
+  {
+    "id": 4,
+    "nombre": "The Witcher 3: Wild Hunt",
+    "categoria": "videojuegos",
+    "precio": 24990,
+    "imagen": "img/game-witcher-3.jpg",
+    "descripcion": "RPG de mundo abierto con Geralt de Rivia."
+  },
+  {
+    "id": 5,
+    "nombre": "Consola PlayStation 5 Pro",
+    "categoria": "consolas",
+    "precio": 1099990,
+    "imagen": "img/console-ps5-pro.jpg",
+    "descripcion": "Consola de última generación con ray tracing avanzado y juegos hasta 4K. Incluye control DualSense."
+  },
+  {
+    "id": 6,
+    "nombre": "Consola Nintendo Switch 2",
+    "categoria": "consolas",
+    "precio": 629990,
+    "imagen": "img/console-nintendo-switch-2.webp",
+    "descripcion": "Consola híbrida con pantalla de 7,9\", Joy-Con magnéticos y 256 GB de almacenamiento."
+  },
+  {
+    "id": 7,
+    "nombre": "Mando Inalámbrico Xbox Elite Series 2",
+    "categoria": "accesorios",
+    "precio": 279990,
+    "imagen": "img/accessory-xbox-elite-series-2.webp",
+    "descripcion": "Mando profesional con palancas de tensión ajustable y hasta 40 horas de batería."
+  },
+  {
+    "id": 8,
+    "nombre": "Auriculares Redragon Zeus Pro 7.1",
+    "categoria": "accesorios",
+    "precio": 61990,
+    "precioOferta": 49990,
+    "imagen": "img/accessory-redragon-zeus-pro.webp",
+    "descripcion": "Auriculares inalámbricos con sonido envolvente 7.1, micrófono desmontable y luces RGB."
+  }
+]
