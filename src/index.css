@@ -73,9 +73,10 @@ form[role="search"] .form-control {
   margin-bottom: 1.5rem;
 }
 
+/* Botón primario con contraste AA (>= 4.5:1) sobre texto blanco. */
 .btn-primary {
-  --bs-btn-bg: var(--juga2-accent);
-  --bs-btn-border-color: var(--juga2-accent);
+  --bs-btn-bg: #6f4ff5;
+  --bs-btn-border-color: #6f4ff5;
   --bs-btn-hover-bg: var(--juga2-accent-dark);
   --bs-btn-hover-border-color: var(--juga2-accent-dark);
 }
@@ -207,6 +208,85 @@ form[role="search"] .form-control {
   background-color: var(--juga2-surface);
   color: #fff;
   border-color: var(--juga2-border);
+}
+
+/* Botones "outline" con tonos más claros para mantener el contraste AA sobre las superficies oscuras. */
+.btn-outline-success {
+  --bs-btn-color: #57c98f;
+  --bs-btn-border-color: #57c98f;
+  --bs-btn-hover-bg: #57c98f;
+  --bs-btn-hover-border-color: #57c98f;
+  --bs-btn-hover-color: #111;
+  --bs-btn-active-bg: #57c98f;
+  --bs-btn-active-border-color: #57c98f;
+  --bs-btn-active-color: #111;
+}
+
+.btn-outline-danger {
+  --bs-btn-color: #ff7a85;
+  --bs-btn-border-color: #ff7a85;
+  --bs-btn-hover-bg: #ff7a85;
+  --bs-btn-hover-border-color: #ff7a85;
+  --bs-btn-hover-color: #111;
+  --bs-btn-active-bg: #ff7a85;
+  --bs-btn-active-border-color: #ff7a85;
+  --bs-btn-active-color: #111;
+}
+
+/* Texto secundario más claro para cumplir contraste AA sobre el fondo oscuro. */
+.text-secondary {
+  --bs-secondary-rgb: 168, 165, 184;
+}
+
+/* ---------- Secciones y formularios ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* evita que la navbar sticky tape el título al navegar */
+}
+
+.section-alt {
+  background-color: var(--juga2-surface);
+  border-block: 1px solid var(--juga2-border);
+}
+
+.contact-form,
+.admin-form .form-control,
+.admin-form .form-select,
+.contact-form .form-control {
+  color: #fff;
+}
+
+.contact-form .form-control,
+.admin-form .form-control,
+.admin-form .form-select {
+  background-color: var(--juga2-bg);
+  border-color: var(--juga2-border);
+}
+
+.contact-form .form-control::placeholder,
+.admin-form .form-control::placeholder {
+  color: var(--juga2-text-muted);
+}
+
+.contact-form {
+  max-width: 640px;
+}
+
+/* CSS Grid: dos columnas en pantallas medianas y una en móvil; los campos largos ocupan todo el ancho. */
+.admin-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .admin-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .admin-form .form-grid-full {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ---------- Mensajes ---------- */

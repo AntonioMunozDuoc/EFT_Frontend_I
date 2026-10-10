@@ -10,9 +10,17 @@ function CartModal({ abierto, onClose, items, onRemove, onClear, total }) {
   return (
     <div className="cart-modal-backdrop" onClick={onClose}>
       {/* stopPropagation evita que un clic dentro del modal lo cierre */}
-      <div className="cart-modal" onClick={(event) => event.stopPropagation()}>
+      <div
+        className="cart-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cart-modal-title"
+        onClick={(event) => event.stopPropagation()}
+      >
         <div className="cart-modal-header">
-          <h2 className="h5 mb-0">Tu carrito</h2>
+          <h2 id="cart-modal-title" className="h5 mb-0">
+            Tu carrito
+          </h2>
           <button type="button" className="btn-close" aria-label="Cerrar" onClick={onClose}></button>
         </div>
 

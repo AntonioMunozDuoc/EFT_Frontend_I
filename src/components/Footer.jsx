@@ -1,11 +1,11 @@
 // Pie de página con datos de contacto y enlaces.
 function Footer() {
   return (
-    <footer id="contacto" className="site-footer py-5">
+    <footer className="site-footer py-5">
       <div className="container">
         <div className="row gy-4">
           <div className="col-md-4">
-            <h2 className="h5">Contacto</h2>
+            <h2 className="h5">Datos de contacto</h2>
             <p>¿Tienes dudas sobre un producto o un pedido? Escríbenos.</p>
             <p className="mb-1">Av. Falsa 4321, Santiago</p>
             <p className="mb-1">contacto@juga2.cl</p>
@@ -20,6 +20,9 @@ function Footer() {
               </li>
               <li>
                 <a href="#productos">Productos</a>
+              </li>
+              <li>
+                <a href="#administrar">Agregar producto</a>
               </li>
               <li>
                 <a href="#contacto">Contacto</a>
