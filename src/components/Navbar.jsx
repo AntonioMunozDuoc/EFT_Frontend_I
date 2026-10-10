@@ -1,12 +1,5 @@
 import { useState } from "react";
-
-// Categorías del filtro; "todos" desactiva el filtrado.
-const CATEGORIAS = [
-  { id: "todos", label: "Todos" },
-  { id: "consolas", label: "Consolas" },
-  { id: "videojuegos", label: "Videojuegos" },
-  { id: "accesorios", label: "Accesorios" },
-];
+import { CATEGORIAS_FILTRO } from "../utils/categorias.js";
 
 // Barra de navegación con filtro por categoría, buscador y acceso al carrito.
 function Navbar({
@@ -45,19 +38,30 @@ function Navbar({
               </a>
             </li>
 
-            {CATEGORIAS.map((categoria) => (
+            {CATEGORIAS_FILTRO.map((categoria) => (
               <li className="nav-item" key={categoria.id}>
                 <button
                   type="button"
                   className={`nav-link category-link btn btn-link ${
                     categoriaActiva === categoria.id ? "active" : ""
                   }`}
-                  onClick={() => onCategoriaChange(categoria.id)}
+                  onClick={() => {
+                    onCategoriaChange(categoria.id);
+                    setMenuAbierto(false);
+                    // Lleva al usuario al catálogo para que vea de inmediato el resultado del filtro.
+                    document.getElementById("productos")?.scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
                   {categoria.label}
                 </button>
               </li>
             ))}
+
+            <li className="nav-item">
+              <a className="nav-link" href="#administrar">
+                Agregar producto
+              </a>
+            </li>
 
             <li className="nav-item">
               <a className="nav-link" href="#contacto">
