@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
 import ProductList from "./components/ProductList.jsx";
 import CartModal from "./components/CartModal.jsx";
+import AddProductForm from "./components/AddProductForm.jsx";
+import ContactForm from "./components/ContactForm.jsx";
 import Footer from "./components/Footer.jsx";
 import useDebounce from "./hooks/useDebounce.js";
 import useLocalStorage from "./hooks/useLocalStorage.js";
@@ -134,16 +136,35 @@ function App() {
     setCarrito([]);
   }
 
+  // Agrega un videojuego al catálogo: el id nuevo es el mayor existente + 1 y el producto queda al inicio de la lista.
+  function agregarProducto(datos) {
+    setProductos((prev) => {
+      const nuevoId = prev.reduce((mayor, item) => Math.max(mayor, Number(item.id)), 0) + 1;
+      return [{ id: nuevoId, ...datos }, ...prev];
+    });
+    // Asegura que el nuevo producto sea visible aunque hubiera un filtro activo.
+    setCategoriaActiva("todos");
+    setBusqueda("");
+  }
+
+  // Elimina un videojuego del catálogo; si estaba en el carrito también se quita para no dejar ítems fantasma.
+  function eliminarProducto(id) {
+    setProductos((prev) => prev.filter((item) => item.id !== id));
+    setCarrito((prev) => prev.filter((item) => item.producto.id !== id));
+  }
+
   return (
     <>
-      <Navbar
-        categoriaActiva={categoriaActiva}
-        onCategoriaChange={setCategoriaActiva}
-        searchTerm={busqueda}
-        onSearchChange={setBusqueda}
-        cartCount={totalItems}
-        onCartClick={() => setCarritoAbierto(true)}
-      />
+      <header>
+        <Navbar
+          categoriaActiva={categoriaActiva}
+          onCategoriaChange={setCategoriaActiva}
+          searchTerm={busqueda}
+          onSearchChange={setBusqueda}
+          cartCount={totalItems}
+          onCartClick={() => setCarritoAbierto(true)}
+        />
+      </header>
 
       <main>
         <Hero />
@@ -159,9 +180,31 @@ function App() {
               products={productosFiltrados}
               cartIds={cartIds}
               onAgregar={agregarAlCarrito}
+              onEliminar={eliminarProducto}
               status={estadoCarga}
               errorMessage={errorMensaje}
             />
+          </div>
+        </section>
+
+        <section id="administrar" className="py-5 section-alt">
+          <div className="container">
+            <h2>Agregar un videojuego</h2>
+            <p className="text-secondary mb-4">
+              Completa el formulario para sumar un producto al catálogo. También puedes eliminar cualquier producto con
+              el botón &times; de su tarjeta.
+            </p>
+            <AddProductForm onAgregar={agregarProducto} />
+          </div>
+        </section>
+
+        <section id="contacto" className="py-5">
+          <div className="container">
+            <h2>Escríbenos</h2>
+            <p className="text-secondary mb-4">
+              ¿Dudas sobre un producto o un pedido? Envía tu mensaje al administrador del sitio.
+            </p>
+            <ContactForm />
           </div>
         </section>
       </main>

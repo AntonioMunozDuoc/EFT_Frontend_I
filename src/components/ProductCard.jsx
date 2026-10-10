@@ -1,15 +1,16 @@
 import { formatPrice, tieneOferta } from "../utils/precios.js";
+import { urlImagen } from "../utils/imagenes.js";
 
-// Tarjeta de un producto; `enCarrito` define el estilo y el texto del botón.
-function ProductCard({ product, enCarrito, onAgregar }) {
+// Tarjeta de un producto; `enCarrito` define el estilo y el texto del botón y `onEliminar` lo quita del catálogo.
+function ProductCard({ product, enCarrito, onAgregar, onEliminar }) {
   const enOferta = tieneOferta(product);
 
   return (
     <div className="col-12 col-sm-6 col-lg-3">
-      <div className="card product-card">
+      <article className="card product-card">
         {enOferta && <span className="badge-oferta">Oferta</span>}
 
-        <img src={`${import.meta.env.BASE_URL}${product.imagen}`} alt={`Imagen de ${product.nombre}`} />
+        <img src={urlImagen(product.imagen)} alt={`Imagen de ${product.nombre}`} loading="lazy" />
 
         <div className="card-body">
           <span className="badge badge-categoria mb-2">{product.categoria}</span>
@@ -25,15 +26,26 @@ function ProductCard({ product, enCarrito, onAgregar }) {
             <p className="product-price">{formatPrice(product.precio)}</p>
           )}
 
-          <button
-            type="button"
-            className={`btn btn-sm ${enCarrito ? "btn-outline-success" : "btn-primary"}`}
-            onClick={() => onAgregar(product)}
-          >
-            {enCarrito ? "En el carrito ✓" : "Agregar al carrito"}
-          </button>
+          <div className="d-flex gap-2">
+            <button
+              type="button"
+              className={`btn btn-sm flex-grow-1 ${enCarrito ? "btn-outline-success" : "btn-primary"}`}
+              onClick={() => onAgregar(product)}
+            >
+              {enCarrito ? "En el carrito ✓" : "Agregar al carrito"}
+            </button>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-danger"
+              onClick={() => onEliminar(product.id)}
+              aria-label={`Eliminar ${product.nombre} del catálogo`}
+              title="Eliminar del catálogo"
+            >
+              &times;
+            </button>
+          </div>
         </div>
-      </div>
+      </article>
     </div>
   );
 }

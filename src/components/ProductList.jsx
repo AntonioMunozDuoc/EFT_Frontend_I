@@ -1,7 +1,7 @@
 import ProductCard from "./ProductCard.jsx";
 
 // Elige qué mostrar según el estado: carga, error, sin resultados o la grilla de productos.
-function ProductList({ products, cartIds, onAgregar, status, errorMessage }) {
+function ProductList({ products, cartIds, onAgregar, onEliminar, status, errorMessage }) {
   if (status === "loading") {
     return (
       <div className="loading-state text-center py-5">
@@ -33,6 +33,7 @@ function ProductList({ products, cartIds, onAgregar, status, errorMessage }) {
           product={product}
           enCarrito={cartIds.has(product.id)}
           onAgregar={onAgregar}
+          onEliminar={onEliminar}
         />
       ))}
     </div>
