@@ -9,7 +9,7 @@ Sitio web de una tienda online de videojuegos, consolas y accesorios. Está cons
 ## Enlaces
 
 - **Repositorio:** https://github.com/AntonioMunozDuoc/EFT_Frontend_I
-- **Sitio publicado:** https://antoniomunozduoc.github.io/Exp3_S8_Frontend_I/
+- **Sitio publicado:** https://antoniomunozduoc.github.io/EFT_Frontend_I/#contacto
 
 ## Tecnologías
 
